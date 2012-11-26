@@ -46,11 +46,8 @@ namespace :deploy do
     task :restart do
         puts "    not doing stop because not a Rails application."
     end
-    end
 
     task :postinstall, :except=>{:no_release=>true} do
         puts "    not doing stop because not a Rails application."
     end
-    end
-
 end
