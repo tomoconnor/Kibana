@@ -11,15 +11,14 @@ set :use_sudo, false
 set :local_user, "deploy"
 set :user, "deploy"
 
-set :deploy_to, "/opt/#{application}"
+set :deploy_to, "/opt/applications/#{application}"
 
 set :copy_strategy, :export
+set :deploy_via, :rsync_with_remote_cache
 
 set :default_branch, "kibana-ruby"
 
-branch = Capistrano::CLI.ui.ask "Branch to deploy (make sure to push the branch first): [#{default_branch}]"
-branch = default_branch if branch.empty?
-set :branch, branch
+set :branch, "kibana-ruby"
 
 task :live do
     role :live, "log01", :primary => true
